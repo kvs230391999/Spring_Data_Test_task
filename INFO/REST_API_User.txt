@@ -1,0 +1,88 @@
+
+REST API User
+---------------------
+
+Postman для тесту REST API
+https://www.postman.com/
+
+1) Отримання всіх даних
+
+GET
+http://localhost:8080/api/v1/users
+
+
+2) Створення даних
+
+POST
+http://localhost:8080/api/v1/users
+
+Налаштування в Postman: Body, raw, JSON.
+Прописуємо при кожному запиті окремо.
+УВАГА. Для ключів, НЕ "first_name", а "firstName".
+Інакше, може бути помилка first_name є null.
+
+(1)
+{
+	"username": "Alice",
+	"comment": "-",
+	"value" : "4"
+}
+
+(2)
+{
+	"username": "John",
+    "comment": "-",
+    "value" : "4"
+}
+3) Отримання даних за id
+
+GET
+http://localhost:8080/api/v1/users/2
+
+
+4) REST-запит на оновлення даних за id
+
+PUT
+http://localhost:8080/api/v1/users/4
+
+Налаштування в Postman: Body, raw, JSON.
+
+{
+	"comment": "-",
+    "value" : "4"
+}
+
+PUT
+http://localhost:8080/api/v1/users/2
+
+Налаштування в Postman: Body, raw, JSON.
+
+{
+	"value" : "4"
+}
+
+
+5) Отримання даних за firstName
+
+GET
+http://localhost:8080/api/v1/users/username/Alice
+http://localhost:8080/api/v1/users/username/John
+Відсутнє
+http://localhost:8080/api/v1/users/username/Sam
+
+
+6) Отримання даних за lastName
+
+GET
+http://localhost:8080/api/v1/users/comment/Man
+http://localhost:8080/api/v1/users/comment/Sunny
+Відсутнє
+http://localhost:8080/api/v1/users/comment/Wolf
+
+
+
+7) Видалення даних за id
+
+DELETE
+http://localhost:8080/api/v1/users/4
+
