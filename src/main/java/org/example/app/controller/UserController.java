@@ -91,4 +91,13 @@ public class UserController {
         else return new ResponseData(HttpStatus.NOT_FOUND.toString(),
                 false, ResponseMessage.NO_DATA.getResMsg());
     }
+    @GetMapping("/users/value/{value}")
+    public ResponseData getByValue(@PathVariable String value) {
+        List<User> list = service.getByValue(value);
+        if (!list.isEmpty())
+            return new ResponseData(HttpStatus.OK.toString(),
+                    true, list);
+        else return new ResponseData(HttpStatus.NOT_FOUND.toString(),
+                false, ResponseMessage.NO_DATA.getResMsg());
+    }
 }

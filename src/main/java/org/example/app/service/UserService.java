@@ -61,4 +61,8 @@ public class UserService {
         return repository.findByComment(comment)
                 .orElse(Collections.emptyList());
     }
+    public List<User> getByValue(String value) {
+        return repository.findByValue(value)
+                .orElse(Collections.emptyList());
+    }
 }
